@@ -45,7 +45,7 @@ function setup_rvm()
 {
   echo "installing rvm"
   \curl -sSL https://get.rvm.io | bash
-  if !(grep source.*rvm "$HOME/.bashrc") then
+  if !(grep source.*rvm "$HOME/.bashrc" 1>/dev/null) then
     echo "Adding source to bashrc"
     echo "source $HOME/.rvm/scripts/rvm" >> $HOME/.bashrc
   fi
