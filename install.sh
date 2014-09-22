@@ -16,14 +16,20 @@ function create_symlink()
   ln -s $1 $2
 }
 
+function check_dir_and_create()
+{
+	if [ ! -e "$1" ]; then
+		echo "Creating $1 dir"
+		mkdir "$1"
+	else
+		echo "$1 exists!"
+	fi
+
+}
+
 function setup_vim()
 {
-	if [ ! -e "$HOME/.vim" ]; then
-		echo "Creating .vim dir"
-		mkdir "$HOME/.vim"
-	else
-		echo "$HOME/.vim exists!"
-	fi
+	check_dir_and_create "$HOME/.vim"
 
 	echo 'symlinking .vimrc'
   create_symlink "$PWD/vimrc" "$HOME/.vimrc"
@@ -33,10 +39,14 @@ function setup_vim()
 		mkdir "$HOME/.vim/autoload"
 	fi
   create_symlink "$PWD/vim/autoload/plug.vim" "$HOME/.vim/autoload/plug.vim"
+  vim +PlugInstall +qall
 }
 
 function setup_bash()
 {
+	echo 'setting-up git-prompt'
+	check_dir_and_create "$HOME/.misc"
+	create_symlink "$PWD/git-prompt" "$HOME/.misc/git-prompt.sh"
   echo 'symlinking .bashrc'
   create_symlink "$PWD/bashrc" "$HOME/.bashrc"
 }
@@ -47,7 +57,7 @@ function setup_rvm()
   \curl -sSL https://get.rvm.io | bash
   if !(grep source.*rvm "$HOME/.bashrc" 1>/dev/null) then
     echo "Adding source to bashrc"
-    echo "source $HOME/.rvm/scripts/rvm" >> $HOME/.bashrc
+    echo "source \$HOME/.rvm/scripts/rvm" >> $HOME/.bashrc
   fi
 }
 

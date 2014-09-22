@@ -56,8 +56,10 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+source $HOME/.misc/git-prompt.sh 
+
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:$(__git_ps1 " (%s)") \[\033[01;34m\]\w\[\033[00m\]\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -120,4 +122,4 @@ export EDITOR=/usr/bin/vim
 export PATH="$HOME/bin:$PATH"
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-source /home/myconfig/.rvm/scripts/rvm
+source $HOME/.rvm/scripts/rvm
