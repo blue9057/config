@@ -1,0 +1,14 @@
+[user]
+	name = Yeongjin Jang
+	email = blue9057@gmail.com
+[core]
+	excludesfile = ~/.gitignore_global
+	editor = vim
+[color]
+	ui = auto
+[commit]
+	gpgsign = false
+[fetch]
+	prune = true
+[push]
+	default = simple

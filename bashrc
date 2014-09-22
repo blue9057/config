@@ -118,3 +118,6 @@ export LANG="$LC_ALL"
 export EDITOR=/usr/bin/vim
 
 export PATH="$HOME/bin:$PATH"
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+source /home/myconfig/.rvm/scripts/rvm
