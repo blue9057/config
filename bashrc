@@ -38,6 +38,7 @@ fi
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
     xterm-color) color_prompt=yes;;
+    screen-256color) color_prompt=yes;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -57,7 +58,6 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 source $HOME/.misc/git-prompt.sh 
-
 if [ "$color_prompt" = yes ]; then
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:$(__git_ps1 " (%s)") \[\033[01;34m\]\w\[\033[00m\]\$ '
 else
@@ -121,5 +121,8 @@ export EDITOR=/usr/bin/vim
 
 export PATH="$HOME/bin:$PATH"
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 source $HOME/.rvm/scripts/rvm
+rvm use default 2>/dev/null 1>/dev/null
+
+export TERM=screen-256color
