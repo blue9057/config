@@ -7,8 +7,13 @@ call plug#begin('~/.vim/plugged')
 if has('gui_running')
   Plug 'wombat256.vim'
 else
-  " Plug 'altercation/vim-colors-solarized'
+  Plug 'altercation/vim-colors-solarized'
   Plug 'khwon/vim-tomorrow-theme'
+  Plug '29decibel/codeschool-vim-theme'
+  Plug 'vim-scripts/BusyBee'
+  Plug 'w0ng/vim-hybrid'
+  Plug 'nanotech/jellybeans.vim'
+  Plug 'jonathanfilip/vim-lucius'
 endif
 
 " General
@@ -159,7 +164,7 @@ if has('gui_running')
 	colorscheme wombat256mod
   else
 	" colorscheme solarized
-	colorscheme Tomorrow-Night-Eighties
+	colorscheme Tomorrow-Night
 endif
 
 augroup colorcolumn
