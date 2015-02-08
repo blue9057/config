@@ -80,6 +80,7 @@ function setup_ssh()
   echo "setting-up ssh keys"
   mkdir "$HOME/.ssh"
   create_symlink "$PWD/ssh/id_rsa.enc" "$HOME/.ssh/id_rsa"
+  chmod "400" "$PWD/ssh/id_rsa.enc"
   echo "$PWD/ssh/authorized_keys" >> "$HOME/.ssh/authorized_keys"
 }
 
@@ -116,5 +117,7 @@ case "$1" in
     echo '  bash  Setup bashrc'
     echo '  rvm Setup RVM'
     echo '  git Setup git'
+    echo '  bin Setup bin'
+    echo '  ssh Setup ssh keys'
     ;;
 esac
