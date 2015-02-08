@@ -16,6 +16,20 @@ else
   Plug 'jonathanfilip/vim-lucius'
 endif
 
+" 80 line
+Plug 'vim-scripts/eighties.vim'
+" Cscope maps
+Plug 'khwon/cscope_maps.vim'
+" tComment
+Plug 'vim-scripts/tComment'
+
+" taglist
+Plug 'vim-scripts/taglist.vim'
+" Easytags
+Plug 'xolox/vim-easytags'
+Plug 'xolox/vim-misc'
+
+Plug 'vim-javascript'
 " General
 " Preserve missing EOL at the end of text files
 Plug 'PreserveNoEOL'
