@@ -75,6 +75,14 @@ function setup_bin()
   create_symlink "$PWD/bin" "$HOME/bin"
 }
 
+function setup_ssh()
+{
+  echo "setting-up ssh keys"
+  mkdir "$HOME/.ssh"
+  create_symlink "$PWD/ssh/id_rsa.enc" "$HOME/.ssh/id_rsa"
+  echo "$PWD/ssh/authorized_keys" >> "$HOME/.ssh/authorized_keys"
+}
+
 case "$1" in
   vim)
     setup_vim
@@ -94,6 +102,10 @@ case "$1" in
 
   bin)
     setup_bin
+  ;;
+
+  ssh)
+    setup_ssh
   ;;
 
   *)
