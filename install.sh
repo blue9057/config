@@ -69,6 +69,12 @@ function setup_git()
   create_symlink "$PWD/gitignore_global" "$HOME/.gitignore_global"
 }
 
+function setup_bin()
+{
+  echo "setting-up ~/bin"
+  create_symlink "$PWD/bin" "$HOME/bin"
+}
+
 case "$1" in
   vim)
     setup_vim
@@ -84,6 +90,10 @@ case "$1" in
 
   git)
     setup_git
+  ;;
+
+  bin)
+    setup_bin
   ;;
 
   *)
