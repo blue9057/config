@@ -81,7 +81,7 @@ function setup_ssh()
   mkdir "$HOME/.ssh"
   create_symlink "$PWD/ssh/id_rsa.enc" "$HOME/.ssh/id_rsa"
   chmod "400" "$PWD/ssh/id_rsa.enc"
-  echo "$PWD/ssh/authorized_keys" >> "$HOME/.ssh/authorized_keys"
+  cat "$PWD/ssh/authorized_keys" >> "$HOME/.ssh/authorized_keys"
 }
 
 case "$1" in
