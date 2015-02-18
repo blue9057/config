@@ -275,6 +275,7 @@ highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace //
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWritePre * :%s/\s\+$//e
 if version >= 702
   autocmd BufWinLeave * call clearmatches()
 endif
