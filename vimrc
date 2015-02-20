@@ -177,7 +177,7 @@ set t_Co=256
 if has('gui_running')
 	colorscheme wombat256mod
   else
-	" colorscheme solarized
+	"colorscheme solarized
 	colorscheme Tomorrow-Night
 endif
 
@@ -460,11 +460,13 @@ let s:open_nerdtree = 1
 if &diff
   let s:open_nerdtree = 0
 endif
-autocmd VimEnter *
-      \ if (s:open_nerdtree) |
-      \   NERDTree |
-      \   wincmd p |
-      \ endif
+
+"autocmd VimEnter *
+"      \ if (s:open_nerdtree) |
+"      \   NERDTree |
+"      \   wincmd p |
+"      \ endif
+autocmd VimEnter * if argc() == 0 | NERDTree | endif
 autocmd BufEnter *
       \ if winnr('$') == 1 &&
       \     exists('b:NERDTreeType') && b:NERDTreeType == 'primary' |

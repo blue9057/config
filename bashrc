@@ -92,6 +92,7 @@ alias ll='ls -alF'
 alias la='ls -als'
 alias l='ls -ls'
 alias yj='yeongjin'
+alias scr='screen -T xterm-color'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
