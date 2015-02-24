@@ -447,28 +447,29 @@ autocmd VimEnter *
       \ if (s:fugitive_insert) |
       \   startinsert |
       \ endif
-autocmd FileType gitcommit let s:open_nerdtree = 0
-autocmd FileType gitrebase let s:open_nerdtree = 0
+
+"autocmd FileType gitcommit let s:open_nerdtree = 0
+"autocmd FileType gitrebase let s:open_nerdtree = 0
 
 " airline
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 
 " NERD Tree
-let s:open_nerdtree = 1
-if &diff
-  let s:open_nerdtree = 0
-endif
-autocmd VimEnter *
-      \ if (s:open_nerdtree) |
-      \   NERDTree |
-      \   wincmd p |
-      \ endif
-autocmd BufEnter *
-      \ if winnr('$') == 1 &&
-      \     exists('b:NERDTreeType') && b:NERDTreeType == 'primary' |
-      \   q |
-      \ endif
+"let s:open_nerdtree = 1
+"if &diff
+"  let s:open_nerdtree = 0
+"endif
+"autocmd VimEnter *
+"      \ if (s:open_nerdtree) |
+"      \   NERDTree |
+"      \   wincmd p |
+"      \ endif
+"autocmd BufEnter *
+"      \ if winnr('$') == 1 &&
+"      \     exists('b:NERDTreeType') && b:NERDTreeType == 'primary' |
+"      \   q |
+"      \ endif
 
 
 " ConqueTerm
