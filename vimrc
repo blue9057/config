@@ -177,7 +177,7 @@ set t_Co=256
 if has('gui_running')
 	colorscheme wombat256mod
   else
-	" colorscheme solarized
+	"colorscheme solarized
 	colorscheme Tomorrow-Night
 endif
 
@@ -275,6 +275,7 @@ highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace //
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWritePre * :%s/\s\+$//e
 if version >= 702
   autocmd BufWinLeave * call clearmatches()
 endif
@@ -470,6 +471,7 @@ let g:airline_right_sep = ''
 "      \     exists('b:NERDTreeType') && b:NERDTreeType == 'primary' |
 "      \   q |
 "      \ endif
+"autocmd VimEnter * if argc() == 0 | NERDTree | endif
 
 
 " ConqueTerm

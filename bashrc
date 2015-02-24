@@ -40,6 +40,7 @@ case "$TERM" in
     xterm) color_prompt=yes;;
     xterm-color) color_prompt=yes;;
     screen-256color) color_prompt=yes;;
+    screen) color_prompt=yes;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -58,7 +59,7 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-source $HOME/.misc/git-prompt.sh 
+source $HOME/.misc/git-prompt.sh
 if [ "$color_prompt" = yes ]; then
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:$(__git_ps1 " (%s)") \[\033[01;34m\]\w\[\033[00m\]\$ '
 else
@@ -91,6 +92,7 @@ alias ll='ls -alF'
 alias la='ls -als'
 alias l='ls -ls'
 alias yj='yeongjin'
+alias scr='screen -T xterm-color'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert

@@ -81,7 +81,13 @@ function setup_ssh()
   mkdir "$HOME/.ssh"
   create_symlink "$PWD/ssh/id_rsa.enc" "$HOME/.ssh/id_rsa"
   chmod "400" "$PWD/ssh/id_rsa.enc"
-  echo "$PWD/ssh/authorized_keys" >> "$HOME/.ssh/authorized_keys"
+  cat "$PWD/ssh/authorized_keys" >> "$HOME/.ssh/authorized_keys"
+}
+
+function setup_tmux()
+{
+  echo "Setting-up tmux.conf"
+  create_symlink "$PWD/tmux.conf" "$HOME/.tmux.conf"
 }
 
 case "$1" in
@@ -109,6 +115,10 @@ case "$1" in
     setup_ssh
   ;;
 
+  tmux)
+    setup_tmux
+  ;;
+
   *)
     echo "usage: $(basename $0) <command>"
     echo ''
@@ -119,5 +129,6 @@ case "$1" in
     echo '  git Setup git'
     echo '  bin Setup bin'
     echo '  ssh Setup ssh keys'
+    echo '  tmux Setup tmux.conf'
     ;;
 esac
