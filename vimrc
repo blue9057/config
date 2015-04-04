@@ -524,8 +524,8 @@ nmap <esc>OF $
 imap <esc>OF <esc>$a
 cmap <esc>OF <end>
 
-set tw=80
-function WordWrap()
-  normal! gggqG
-endfunction
-nnoremap ; :call WordWrap()<CR>
+"set tw=80
+"function WordWrap()
+"  normal! gggqG
+"endfunction
+"nnoremap ; :call WordWrap()<CR>
