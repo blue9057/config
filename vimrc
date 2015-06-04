@@ -1,6 +1,7 @@
 " Vundle
 set nocompatible
-filetype off
+filetype on
+set modeline
 call plug#begin('~/.vim/plugged')
 
 " Colorscheme
@@ -529,3 +530,4 @@ cmap <esc>OF <end>
 "  normal! gggqG
 "endfunction
 "nnoremap ; :call WordWrap()<CR>
+"

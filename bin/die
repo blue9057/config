@@ -1,0 +1,36 @@
+#!/usr/bin/env ruby
+
+$die_git_uri = 'https://github.com/tsgates/die.git'
+
+def usage
+  puts "USAGE : '$ #{__FILE__}' for initialize die at here"
+  puts "USAGE : '$ #{__FILE__} DIR' for initialize die at DIR"
+  exit
+end
+
+if ARGV.length > 1
+  usage
+end
+dir = nil
+dir_present = false
+if ARGV.length == 1
+  dir = ARGV[1]
+  if FILE.exists?(dir)
+    dir_present = true
+  else
+    usage
+  end
+end
+commands = []
+if dir_present
+  commands << "cd #{dir}"
+end
+commands << "git clone #{$die_git_uri}"
+commands << "cd die"
+commands << "rm -rf ./.git"
+commands << "mv * ../"
+commands << "mv .* ../"
+commands << "cd .."
+commands << "rmdir die"
+p commands
+system commands.join(';')
