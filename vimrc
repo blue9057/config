@@ -53,7 +53,7 @@ Plug 'tpope/vim-unimpaired'
 " Vim sugar for the UNIX shell commands
 Plug 'tpope/vim-eunuch'
 " Compile errors
-Plug 'scrooloose/syntastic'
+"Plug 'scrooloose/syntastic'
 " Switch between source files and header files
 Plug 'a.vim'
 " Git wrapper
