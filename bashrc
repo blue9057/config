@@ -131,3 +131,4 @@ export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 source $HOME/.rvm/scripts/rvm
 rvm use default 2>/dev/null 1>/dev/null
+eval "$(thefuck --alias)"
