@@ -62,7 +62,11 @@ fi
 source $HOME/.misc/git-prompt.sh
 if [ "$color_prompt" = yes ]; then
     #PS1='[${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\] $(__git_ps1 " (%s)") \[\033[01;34m\]\w\[\033[00m\]\$] '
-    PS1='\[\033[01;32m\][\u@\h\[\033[00m\]$(__git_ps1 " (%s)") \[\033[01;34m\]\w\[\033[00m\]\$\[\033[01;32m\]]\[\033[00m\] '
+    if [ -e $HOME/.misc/git-prompt.sh ]; then
+      PS1='\[\033[01;32m\][\u@\h\[\033[00m\]$(__git_ps1 " (%s)") \[\033[01;34m\]\w\[\033[00m\]\$\[\033[01;32m\]]\[\033[00m\] '
+    else
+      PS1='\[\033[01;32m\][\u@\h\[\033[00m\] \[\033[01;34m\]\w\[\033[00m\]\$\[\033[01;32m\]]\[\033[00m\] '
+    fi
 else
     PS1='[${debian_chroot:+($debian_chroot)}\u@\h \w\$] '
 fi
@@ -131,4 +135,4 @@ export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 source $HOME/.rvm/scripts/rvm
 rvm use default 2>/dev/null 1>/dev/null
-eval "$(thefuck --alias)"
+#eval "$(thefuck --alias)"
