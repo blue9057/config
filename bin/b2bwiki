@@ -1,0 +1,2 @@
+#!/bin/sh
+mosh b2bwiki.cc.gatech.edu
