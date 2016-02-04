@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+inkscape = "/Applications/Inkscape.app/Contents/Resources/script"
+pwd = `pwd`
+pwd = pwd.strip
+next_is = false
+new_argv = [inkscape]
+ARGV.each do |x|
+  if next_is
+    new_argv << "#{pwd}/#{x}"
+  else
+    new_argv << x
+  end
+  if x == '-f' || x == '-A'
+    next_is = true
+  else
+    next_is = false
+  end
+end
+
+system new_argv.join(' ')

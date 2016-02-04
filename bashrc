@@ -96,6 +96,7 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 # some more ls aliases
+alias ls='ls -G'
 alias ll='ls -alF'
 alias la='ls -als'
 alias l='ls -ls'
