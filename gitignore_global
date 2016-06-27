@@ -20,3 +20,13 @@ Session.vim
 .rvmrc
 .ruby-version
 .ruby-gemset
+
+# EditorConfig
+.editorconfig
+
+# Python
+*.pyc
+
+# peda
+peda-session*.txt
+.gdb_history

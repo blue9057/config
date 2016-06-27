@@ -49,6 +49,7 @@ function setup_bash()
 	create_symlink "$PWD/git-prompt" "$HOME/.misc/git-prompt.sh"
   echo 'symlinking .bashrc'
   create_symlink "$PWD/bashrc" "$HOME/.bashrc"
+  create_symlink "$PWD/profile" "$HOME/.profile"
 }
 
 function setup_rvm()
@@ -59,6 +60,7 @@ function setup_rvm()
     echo "Adding source to bashrc"
     echo "source \$HOME/.rvm/scripts/rvm" >> $HOME/.bashrc
   fi
+	create_symlink "$PWD/irbrc" "$HOME/.irbrc"
 }
 
 function setup_git()
@@ -90,6 +92,20 @@ function setup_tmux()
   create_symlink "$PWD/tmux.conf" "$HOME/.tmux.conf"
 }
 
+function setup_zsh()
+{
+  create_symlink "$PWD/zshrc" "$HOME/.zshrc"
+  create_symlink "$PWD/zprofile" "$HOME/.zprofile"
+	check_dir_and_create "$HOME/.antigen"
+  create_symlink "$PWD/antigen.zsh" "$HOME/.antigen/antigen.zsh"
+}
+
+function setup_pkgs()
+{
+  sudo apt-get update;
+  sudo apt-get install exuberant-ctags vim tmux curl wget zsh
+}
+
 case "$1" in
   vim)
     setup_vim
@@ -119,6 +135,14 @@ case "$1" in
     setup_tmux
   ;;
 
+  pkgs)
+    setup_pkgs
+  ;;
+
+  zsh)
+    setup_zsh
+  ;;
+
   *)
     echo "usage: $(basename $0) <command>"
     echo ''
@@ -130,5 +154,6 @@ case "$1" in
     echo '  bin Setup bin'
     echo '  ssh Setup ssh keys'
     echo '  tmux Setup tmux.conf'
+    echo '  pkgs Setup packages that I am using'
     ;;
 esac
