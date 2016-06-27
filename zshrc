@@ -32,6 +32,8 @@ COMPLETION_WAITING_DOTS="true"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+LIME_SHOW_HOSTNAME=1
+
 # Add /usr/local/bin to PATH for Mac OS X
 if [[ "$OSTYPE" == "darwin"* ]]; then
   PATH=/usr/local/bin:/usr/local/sbin:$PATH
