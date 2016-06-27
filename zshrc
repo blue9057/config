@@ -98,7 +98,9 @@ antigen apply
 
 # For ls colors in Solarized theme
 # https://github.com/seebi/dircolors-solarized/issues/10
-[[ "$OSTYPE" == "darwin"* ]] && export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
+#[[ "$OSTYPE" == "darwin"* ]] && export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD \
+[[ "$OSTYPE" == "darwin"* ]] && export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd" && \
+  alias ls='ls -G' || alias ls='ls --color'
 
 # Check if reboot is required for Ubuntu
 if [ -f /usr/lib/update-notifier/update-motd-reboot-required ]; then

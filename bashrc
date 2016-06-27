@@ -96,10 +96,9 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 # some more ls aliases
-# If OS X
-alias ls='ls -G'
-# Otherwise
-alias ls='ls --color'
+[[ "$OSTYPE" == "darwin"* ]] && export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd" && \
+  alias ls='ls -G' || alias ls='ls --color'
+
 alias ll='ls -alF'
 alias la='ls -als'
 alias l='ls -ls'
