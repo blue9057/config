@@ -143,6 +143,17 @@ case "$1" in
     setup_zsh
   ;;
 
+  all)
+    setup_git
+    setup_bin
+    setup_ssh
+    setup_tmux
+    setup_pkgs
+    setup_bash
+    setup_rvm
+    setup_vim
+  ;;
+
   *)
     echo "usage: $(basename $0) <command>"
     echo ''
