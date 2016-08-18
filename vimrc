@@ -10,6 +10,7 @@ if has('gui_running')
 else
   Plug 'altercation/vim-colors-solarized'
   Plug 'khwon/vim-tomorrow-theme'
+  Plug 'chriskempson/vim-tomorrow-theme'
   Plug '29decibel/codeschool-vim-theme'
   Plug 'vim-scripts/BusyBee'
   Plug 'w0ng/vim-hybrid'

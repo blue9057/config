@@ -1,0 +1,7 @@
+#!/bin/sh
+echo "CC=~/dev/fuzzer/eafl/afl-clang-fast CXX=~/dev/fuzzer/eafl/afl-clang-fast++"
+echo "CC=~/dev/fuzzer/afl/afl-clang-fast CXX=~/dev/fuzzer/afl/afl-clang-fast++"
+echo "~/dev/fuzzer/afl/afl-fuzz -i input -o output"
+echo "export LAF_SPLIT_SWITCHES=1"
+echo "export LAF_TRANSFORM_COMPARES=1"
+echo "export LAF_SPLIT_COMPARES=1"
