@@ -36,7 +36,7 @@ LIME_SHOW_HOSTNAME=1
 
 # Add /usr/local/bin to PATH for Mac OS X
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  PATH=/usr/local/bin:/usr/local/sbin:$PATH
+  PATH=/usr/local/bin:/usr/local/sbin:/Library/TeX/Root/bin/x86_64-darwin/:$PATH
 fi
 
 # Set PATH to includes user's bin if it exists
@@ -118,3 +118,5 @@ alias rake='noglob rake'
 alias ag='apt-get'
 alias v='vim'
 alias vi='vim'
+
+export PATH=$PATH:~/ndk/android-ndk-r12
