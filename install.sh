@@ -94,6 +94,7 @@ function setup_tmux()
 
 function setup_zsh()
 {
+  curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
   create_symlink "$PWD/zshrc" "$HOME/.zshrc"
   create_symlink "$PWD/zprofile" "$HOME/.zprofile"
 	check_dir_and_create "$HOME/.antigen"

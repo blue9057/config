@@ -1,5 +1,20 @@
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+#export ZSH=/Users/blue9057/.oh-my-zsh
+
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+#ZSH_THEME="amuse"
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -17,7 +32,7 @@
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
+# COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -32,91 +47,60 @@ COMPLETION_WAITING_DOTS="true"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-LIME_SHOW_HOSTNAME=1
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+#plugins=(git)
 
-# Add /usr/local/bin to PATH for Mac OS X
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  PATH=/usr/local/bin:/usr/local/sbin:/Library/TeX/Root/bin/x86_64-darwin/:$PATH
-fi
+#source $ZSH/oh-my-zsh.sh
 
-# Set PATH to includes user's bin if it exists
-if [ -d "$HOME/bin" ]; then
-  PATH=$HOME/bin:$PATH
-fi
+# User configuration
 
-# Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+# export MANPATH="/usr/local/man:$MANPATH"
 
-if [[ "$(type rvm | head -n 1)" == "rvm is a shell function" ]]; then
-  # Add RVM to PATH for scripting
-  PATH=$PATH:$HOME/.rvm/bin
-  export rvmsudo_secure_path=1
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
 
-  # Use right RVM gemset when using tmux
-  if [[ "$TMUX" != "" ]]; then
-    rvm use default
-    cd ..;cd -
-  fi
-fi
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
 
-# Load rbenv
-if [ -e "$HOME/.rbenv" ]; then
-  export PATH="$HOME/.rbenv/bin:$PATH"
-  eval "$(rbenv init -)"
-fi
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
 
-# Load Antigen
+# ssh
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
 source $HOME/.antigen/antigen.zsh
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
-# A cd command that learns - easily navigate directories from the command line.
-antigen bundle autojump
-# Homebrew aliases and completion.
-antigen bundle brew
-# Run commands with bundle and bundle aliases
-antigen bundle bundler
-# Guess what to install when running an unknown command.
-antigen bundle command-not-found
-# Extracts different types of archives
-antigen bundle extract
-# Autocompletion for gem command.
-antigen bundle gem
-# Git aliases and completion.
-antigen bundle git
-# npm completion.
-antigen bundle npm
-# RVM aliases and completion.
-antigen bundle rvm
-# tmux aliases and configurations.
-if which tmux &> /dev/null; then
-  antigen bundle tmux
-fi
-# Syntax highlighting bundle.
+
+# antigen
+antigen theme eendroroy/alien alien
+antigen bundle unixorn/warhol.plugin.zsh
 antigen bundle zsh-users/zsh-syntax-highlighting
-# Load the theme.
-antigen bundle yous/lime
-# Tell antigen that you're done.
-antigen apply
 
-# For ls colors in Solarized theme
-# https://github.com/seebi/dircolors-solarized/issues/10
-#[[ "$OSTYPE" == "darwin"* ]] && export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD \
-[[ "$OSTYPE" == "darwin"* ]] && export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd" && \
-  alias ls='ls -G' || alias ls='ls --color'
 
-# Check if reboot is required for Ubuntu
-if [ -f /usr/lib/update-notifier/update-motd-reboot-required ]; then
-  function reboot-required()
-  {
-    /usr/lib/update-notifier/update-motd-reboot-required
-  }
-fi
+export PATH="/usr/local/bin:$HOME/bin:$PATH"
 
-# Define aliases
-alias git='noglob git'
-alias rake='noglob rake'
-alias ag='apt-get'
-alias v='vim'
-alias vi='vim'
+export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
+export PATH="$PATH:/Library/TeX/Distributions/.DefaultTeX/Contents/Programs/texbin"
+source $HOME/.rvm/scripts/rvm
+export EDITOR=/usr/bin/vim
 
-export PATH=$PATH:~/ndk/android-ndk-r12
+alias tmux='TERM=xterm-256color tmux'
+alias ls='ls -G'
+alias l='ls -l'
+alias la = 'ls -al'
+alias ll = 'ls -al'
