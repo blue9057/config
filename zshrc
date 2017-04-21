@@ -88,7 +88,7 @@ source $HOME/.antigen/antigen.zsh
 
 # antigen
 antigen theme eendroroy/alien alien
-antigen bundle unixorn/warhol.plugin.zsh
+#antigen bundle unixorn/warhol.plugin.zsh
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 
