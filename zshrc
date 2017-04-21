@@ -102,5 +102,5 @@ export EDITOR=/usr/bin/vim
 alias tmux='TERM=xterm-256color tmux'
 alias ls='ls -G'
 alias l='ls -l'
-alias la = 'ls -al'
-alias ll = 'ls -al'
+alias la='ls -al'
+alias ll='ls -al'
