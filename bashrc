@@ -129,8 +129,8 @@ fi
 #  fi
 #fi
 
-export LC_ALL=en_US.utf-8
-export LANG="$LC_ALL"
+#export LC_ALL=en_US.utf-8
+#export LANG="$LC_ALL"
 export EDITOR=/usr/bin/vim
 
 export PATH="/usr/local/bin:$HOME/bin:$PATH"
