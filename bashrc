@@ -72,6 +72,10 @@ else
 fi
 #unset color_prompt force_color_prompt
 
+#if [ -e /usr/share/virtualenvwrapper/virtualenvwrapper.sh ]; then
+#  source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+#  workon normal
+#fi
 # If this is an xterm set the title to user@host:dir
 #case "$TERM" in
 #xterm*|rxvt*)

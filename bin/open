@@ -1,0 +1,93 @@
+#!/usr/bin/env python2
+
+import os
+import subprocess
+import sys
+
+OS = 'Molla'
+
+def run_command_with(line):
+  os.system(line)
+
+def run_command_without(line):
+  os.system("%s &" % line)
+
+
+def sanitize_fn(filename):
+  if '"' in filename:
+    return ("'%s'" % filename)
+  else:
+    return '"%s"' % filename
+
+def open_pdf(filename):
+  cmd = ''
+  if(OS == 'Linux'):
+    cmd = 'evince'
+  elif(OS == 'OSX'):
+    cmd = '/Applications/Preview.app/Contents/MacOS/Preview'
+
+  full_cmd = "%s %s" % (sanitize_fn(cmd), sanitize_fn(filename))
+  print('Running: ', full_cmd)
+  os.system(full_cmd)
+
+def open_path(filename):
+  cmd = ''
+  if(OS == 'Linux'):
+    cmd = 'nautilus'
+  elif(OS == 'OSX'):
+    cmd = '/System/Library/CoreServices/Finder.app/Contents/MacOS/Finder'
+  full_cmd = ("%s %s" % (sanitize_fn(cmd), sanitize_fn(filename)))
+  print('Running: ', full_cmd)
+  os.system(full_cmd)
+
+
+
+def open_web(filename):
+  cmd = ''
+  if(OS == 'Linux'):
+    cmd = 'firefox'
+  elif(OS == 'OSX'):
+    cmd = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+
+  full_cmd = ("%s %s" % (sanitize_fn(cmd), sanitize_fn(filename)))
+  print('Running: ', full_cmd)
+  os.system(full_cmd)
+
+
+
+
+
+def check_os():
+  global OS
+  uname = subprocess.check_output("uname -a", shell=True)
+  if 'Linux' in uname:
+    OS = 'Linux'
+  elif 'Darwin' in uname:
+    OS = 'OSX'
+
+check_os()
+
+if(len(sys.argv) != 2):
+  open_path('.')
+  quit()
+
+arg = sys.argv[1]
+
+# web
+if  arg.startswith('http:') or \
+    arg.startswith('https:') or \
+    arg.startswith('ftp:'):
+    open_web(arg)
+    quit()
+
+
+# pdf, png, jpg, tiff, etc.
+if  arg.endswith('png') or \
+    arg.endswith('jpg') or \
+    arg.endswith('jpeg') or \
+    arg.endswith('gif') or \
+    arg.endswith('tiff') or \
+    arg.endswith('pdf') or \
+    arg.endswith('bmp'):
+    open_pdf(arg)
+    quit()
