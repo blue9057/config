@@ -104,7 +104,7 @@ function setup_zsh()
 function setup_pkgs()
 {
   sudo apt-get update;
-  sudo apt-get install exuberant-ctags vim tmux curl wget zsh
+  sudo apt-get install exuberant-ctags vim tmux curl wget zsh mosh
 }
 
 case "$1" in
