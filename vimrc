@@ -291,6 +291,8 @@ set shiftwidth=2
 set tabstop=2
 autocmd FileType c,cpp,java,mkd,markdown,python
       \ setlocal softtabstop=2 shiftwidth=2 tabstop=2
+autocmd FileType python
+      \ setlocal softtabstop=4 shiftwidth=4 tabstop=4
 " Disable automatic comment insertion
 autocmd FileType *
       \ setlocal formatoptions-=c formatoptions-=o
