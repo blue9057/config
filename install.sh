@@ -152,6 +152,10 @@ case "$1" in
     setup_zsh
   ;;
 
+  move)
+    setup_move
+  ;;
+
   all)
     setup_git
     setup_bin
