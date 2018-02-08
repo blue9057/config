@@ -107,6 +107,14 @@ function setup_pkgs()
   sudo apt-get install exuberant-ctags vim tmux curl wget zsh mosh
 }
 
+function setup_move()
+{
+  git clone git@github.com:blue9057/config ~/cc
+  rm -rf ~/config
+  mv ~/cc ~/config
+  chmod 400 ~/.ssh/id_rsa
+}
+
 case "$1" in
   vim)
     setup_vim
@@ -159,13 +167,14 @@ case "$1" in
     echo "usage: $(basename $0) <command>"
     echo ''
     echo 'Available commands'
-    echo '  vim	Setup vim and its packages'
+    echo '  vim	  Setup vim and its packages'
     echo '  bash  Setup bashrc'
-    echo '  rvm Setup RVM'
-    echo '  git Setup git'
-    echo '  bin Setup bin'
-    echo '  ssh Setup ssh keys'
-    echo '  tmux Setup tmux.conf'
-    echo '  pkgs Setup packages that I am using'
+    echo '  rvm   Setup RVM'
+    echo '  git   Setup git'
+    echo '  bin   Setup bin'
+    echo '  ssh   Setup ssh keys'
+    echo '  tmux  Setup tmux.conf'
+    echo '  pkgs  Setup packages that I am using'
+    echo '  all   Setup all things at once!'
     ;;
 esac
