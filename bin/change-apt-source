@@ -1,0 +1,3 @@
+#!/bin/bash
+sed -i s/security.ubuntu.com/ubuntu.osuosl.org/g /etc/apt/sources.list
+sed -i s/archive.ubuntu.com/ubuntu.osuosl.org/g /etc/apt/sources.list
