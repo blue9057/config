@@ -143,3 +143,9 @@ export PATH="/usr/local/bin:$HOME/bin:$PATH"
 export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 export PATH="$PATH:/Library/TeX/Distributions/.DefaultTeX/Contents/Programs/texbin"
 source $HOME/.rvm/scripts/rvm
+
+#changwoo
+alias ssh2='ssh -p 2222 $@'
+alias ssh3='ssh2 -t falcon.ece.vt.edu -- ssh $@'
+alias mosh2='mosh --ssh "ssh -p 2222" $@'
+alias mosh3='mosh2 falcon.ece.vt.edu -- mosh $@'

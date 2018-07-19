@@ -1,0 +1,2 @@
+#!/bin/bash
+ssh sgx-laptop.eecs.oregonstate.edu -p 3333
