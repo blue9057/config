@@ -4,90 +4,102 @@ import os
 import subprocess
 import sys
 
+# whitespace sanitizer
+def s(filename):
+    if ' ' in filename or '\n' in filename or '\t' in filename:
+        if '"' in filename:
+            return ("'%s'" % filename)
+        else:
+            return '"%s"' % filename
+    else:
+        return filename
+
 OS = 'Molla'
 
-def run_command_with(line):
-  os.system(line)
+linux = {
+        'pdf' : 'evince',
+        'web' : 'chromium-browser',
+        'path': 'nautilus',
+    }
 
-def run_command_without(line):
-  os.system("%s &" % line)
+mac = {
+        'pdf' : '/Applications/Preview.app/Contents/MacOS/Preview',
+        'web' : '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+        'path' : '/System/Library/CoreServices/Finder.app/Contents/MacOS/Finder',
+    }
 
+commands = {
+        'Linux' : linux,
+        'OSX'   : mac,
+    }
 
-def sanitize_fn(filename):
-  if '"' in filename:
-    return ("'%s'" % filename)
-  else:
-    return '"%s"' % filename
+def run_command_with(cmd, arg):
+    full_cmd = ("%s %s" % (s(cmd), s(arg)))
+    print('Running: ', full_cmd)
+    os.system(full_cmd)
+
+def run_command_without(cmd, arg):
+
+    full_cmd = ("%s %s" % (s(cmd), s(arg)))
+    print('Running: ', full_cmd)
+    os.system("%s 2>&1 1>/dev/null &" % full_cmd)
+    quit()
+
 
 def open_pdf(filename):
-  cmd = ''
-  if(OS == 'Linux'):
-    cmd = 'evince'
-  elif(OS == 'OSX'):
-    cmd = '/Applications/Preview.app/Contents/MacOS/Preview'
+    eligible = False
+    images = ['png', 'jpg', 'jpeg', 'gif', 'tiff', 'pdf', 'bmp']
 
-  full_cmd = "%s %s" % (sanitize_fn(cmd), sanitize_fn(filename))
-  print('Running: ', full_cmd)
-  os.system(full_cmd)
+    for image in images:
+        if filename.endswith(image):
+            eligible = True
+            break
+
+    if not eligible:
+        return
+
+    cmd = commands[OS]['pdf']
+    run_command_without(cmd, filename)
 
 def open_path(filename):
-  cmd = ''
-  if(OS == 'Linux'):
-    cmd = 'nautilus'
-  elif(OS == 'OSX'):
-    cmd = '/System/Library/CoreServices/Finder.app/Contents/MacOS/Finder'
-  full_cmd = ("%s %s" % (sanitize_fn(cmd), sanitize_fn(filename)))
-  print('Running: ', full_cmd)
-  os.system(full_cmd)
-
+    cmd = commands[OS]['path']
+    run_command_without(cmd, filename)
 
 
 def open_web(filename):
-  cmd = ''
-  if(OS == 'Linux'):
-    cmd = 'firefox'
-  elif(OS == 'OSX'):
-    cmd = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+    eligible = False
+    webs = ['http:', 'https:', 'ftp:']
 
-  full_cmd = ("%s %s" % (sanitize_fn(cmd), sanitize_fn(filename)))
-  print('Running: ', full_cmd)
-  os.system(full_cmd)
+    for web in webs:
+        if filename.startswith(web):
+            eligible = True
+            break
 
+    if not eligible:
+        return
 
-
+    cmd = commands[OS]['web']
+    run_command_without(cmd, filename)
 
 
 def check_os():
-  global OS
-  uname = subprocess.check_output("uname -a", shell=True)
-  if 'Linux' in uname:
-    OS = 'Linux'
-  elif 'Darwin' in uname:
-    OS = 'OSX'
-
-check_os()
-
-if(len(sys.argv) != 2):
-  open_path('.')
-  quit()
-
-arg = sys.argv[1]
-
-# web
-if  arg.startswith('http:') or \
-    arg.startswith('https:') or \
-    arg.startswith('ftp:'):
-    open_web(arg)
-    quit()
+    global OS
+    uname = subprocess.check_output("uname -a", shell=True)
+    if 'Linux' in uname:
+        OS = 'Linux'
+    elif 'Darwin' in uname:
+        OS = 'OSX'
 
 
-# pdf, png, jpg, tiff, etc.
-if  arg.endswith('png') or \
-    arg.endswith('jpg') or \
-    arg.endswith('jpeg') or \
-    arg.endswith('gif') or \
-    arg.endswith('tiff') or \
-    arg.endswith('pdf') or \
-    arg.endswith('bmp'):
+def main():
+    check_os()
+    if(len(sys.argv) != 2):
+        open_path('.')
+    arg = sys.argv[1]
+
     open_pdf(arg)
-    quit()
+    open_web(arg)
+    open_path(arg)
+
+if __name__ == '__main__':
+    main()
