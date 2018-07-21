@@ -3,26 +3,21 @@ set t_Co=256
 set bg=dark
 set modeline
 
-filetype plugin indent on
-filetype on
-syntax on
-set autoread
-set backspace=indent,eol,start
-set clipboard=unnamed
-set fileencodings=ucs-bom,utf-8,cp949,latin1
-set fileformats=unix,mac,dos
-set history=1000
-set ignorecase " search
-set incsearch
-set nobackup
-set smartcase
-set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
-set ttimeout
-set ttimeoutlen=100
-set wildignore+=.git,.hg,.svn
-set wildignore+=*.bmp,*.gif,*.jpeg,*.jpg,*.png
-set wildignore+=*.dll,*.exe,*.o,*.obj
-set wildignore+=*.sw?
+call plug#begin('~/.vim/plugged')
+" 80 line
+Plug 'vim-scripts/eighties.vim'
+Plug 'PreserveNoEOL'
+
+Plug 'vim-javascript'
+Plug 'vim-airline/vim-airline'
+Plug 'flazz/vim-colorschemes'
+Plug 'rafi/awesome-vim-colorschemes'
+Plug 'nightsense/vimspectr'
+call plug#end()
+
+
+colorscheme hybrid_material
+
 set wildignore+=*.DS_Store
 set wildignore+=*.pyc
 set wildmenu
@@ -183,3 +178,8 @@ nmap <esc>OH 0
 nmap <esc>OF $
 imap <esc>OF <esc>$a
 cmap <esc>OF <end>
+
+" airline
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline#extensions#tabline#enabled = 1
