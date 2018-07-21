@@ -160,6 +160,7 @@ case "$1" in
     setup_git
     setup_bin
     setup_ssh
+    setup_zsh
     setup_tmux
     setup_pkgs
     setup_bash
