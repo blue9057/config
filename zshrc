@@ -2,12 +2,19 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-#export ZSH=/Users/blue9057/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-#ZSH_THEME="amuse"
+ZSH_THEME="amuse"
+
+# Set list of themes to load
+# Setting this variable when ZSH_THEME=random
+# cause zsh load theme from this variable instead of
+# looking in ~/.oh-my-zsh/themes/
+# An empty array have no effect
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -41,7 +48,10 @@
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
@@ -51,9 +61,11 @@
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-#plugins=(git)
+plugins=(
+  git
+  )
 
-#source $ZSH/oh-my-zsh.sh
+source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -84,27 +96,32 @@
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-source $HOME/.antigen/antigen.zsh
+export TERM=xterm
 
-# antigen
-antigen theme eendroroy/alien alien
-#antigen bundle unixorn/warhol.plugin.zsh
-antigen bundle zsh-users/zsh-syntax-highlighting
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
 
+alias ll='ls -alF'
+alias la='ls -als'
+alias l='ls -ls'
+
+alias scr='screen -T xterm-color'
+alias tmux='TERM=xterm-256color tmux'
+
+alias v='vim'
+alias gdb='gdb -q'
+
+export EDITOR=/usr/bin/vim
 
 export PATH="/usr/local/bin:$HOME/bin:$PATH"
 
 export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 export PATH="$PATH:/Library/TeX/Distributions/.DefaultTeX/Contents/Programs/texbin"
 source $HOME/.rvm/scripts/rvm
-export EDITOR=/usr/bin/vim
 
-alias tmux='TERM=xterm-256color tmux'
-# some more ls aliases
-[[ "$OSTYPE" == "darwin"* ]] && \
-  alias ls='ls -G' || alias ls='ls --color'
-
-#alias ls='ls -G'
-alias l='ls -l'
-alias la='ls -al'
-alias ll='ls -al'
+#changwoo
+alias ssh2='ssh -p 2222 $@'
+alias ssh3='ssh2 -t falcon.ece.vt.edu -- ssh $@'
+alias mosh2='mosh --ssh "ssh -p 2222" $@'
+alias mosh3='mosh2 falcon.ece.vt.edu -- mosh $@'
