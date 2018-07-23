@@ -42,9 +42,13 @@ def run_command_without(cmd, arg):
 
     full_cmd = ("%s %s" % (s(cmd), s(arg)))
     print('Running: ', full_cmd)
-    os.system("%s 2>&1 1>/dev/null &" % full_cmd)
+    os.system("nohup %s 2>&1 >/dev/null &" % full_cmd)
     quit()
 
+def open_vmware(filename):
+    if filename == 'vmware':
+        run_command_without('sudo', 'vmware')
+    return
 
 def open_pdf(filename):
     eligible = False
@@ -97,6 +101,7 @@ def main():
         open_path('.')
     arg = sys.argv[1]
 
+    open_vmware(arg)
     open_pdf(arg)
     open_web(arg)
     open_path(arg)
