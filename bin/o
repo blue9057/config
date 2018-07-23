@@ -35,13 +35,13 @@ commands = {
 
 def run_command_with(cmd, arg):
     full_cmd = ("%s %s" % (s(cmd), s(arg)))
-    print('Running: ', full_cmd)
+    print('Running: "%s"' % full_cmd)
     os.system(full_cmd)
 
 def run_command_without(cmd, arg):
 
     full_cmd = ("%s %s" % (s(cmd), s(arg)))
-    print('Running: ', full_cmd)
+    print('Running: "%s"' % full_cmd)
     os.system("nohup %s 2>&1 >/dev/null &" % full_cmd)
     quit()
 
