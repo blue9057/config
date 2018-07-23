@@ -1,2 +1,2 @@
 #!/bin/bash
-ssh `basename $0`.eecs.oregonstate.edu
+ssh -Y -A `basename $0`.eecs.oregonstate.edu

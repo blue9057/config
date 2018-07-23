@@ -1,2 +1,2 @@
 #!/bin/bash
-ssh sgx-laptop.eecs.oregonstate.edu -p 2222
+ssh -A -Y sgx-laptop.eecs.oregonstate.edu -p 2222

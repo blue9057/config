@@ -1,2 +1,2 @@
 #!/bin/bash
-ssh fw-`basename $0`.eecs.oregonstate.edu
+ssh -A -Y fw-`basename $0`.eecs.oregonstate.edu
