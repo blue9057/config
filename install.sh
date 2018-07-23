@@ -24,7 +24,16 @@ function check_dir_and_create()
 	else
 		echo "$1 exists!"
 	fi
+}
 
+function check_and_create_backup()
+{
+	if [ ! -e "$1" ]; then
+        echo "OK"
+	else
+		echo "$1 exists!"
+        cp $1 $1.bak
+	fi
 }
 
 function setup_vim()
@@ -107,6 +116,13 @@ function setup_pkgs()
   sudo apt-get install exuberant-ctags vim tmux curl wget zsh mosh
 }
 
+function setup_vpnc()
+{
+    check_and_create_backup /etc/vpnc/default.conf
+    check_and_create_backup /etc/vpnc/full.conf
+    sudo cp ~/config/vpnc/*.conf /etc/vpnc/
+}
+
 function setup_move()
 {
   git clone git@github.com:blue9057/config ~/cc
@@ -156,6 +172,10 @@ case "$1" in
     setup_move
   ;;
 
+  vpnc)
+    setup_vpnc
+  ;;
+
   all)
     setup_git
     setup_bin
@@ -166,6 +186,7 @@ case "$1" in
     setup_bash
     setup_rvm
     setup_vim
+    setup_vpnc
   ;;
 
   *)
