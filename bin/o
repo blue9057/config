@@ -20,6 +20,7 @@ linux = {
         'pdf' : 'evince',
         'web' : 'chromium-browser',
         'path': 'nautilus',
+        'tex' : 'atom',
     }
 
 mac = {
@@ -65,6 +66,21 @@ def open_pdf(filename):
     cmd = commands[OS]['pdf']
     run_command_without(cmd, filename)
 
+def open_tex(filename):
+    eligible = False
+    exts = ['tex', 'bib']
+
+    for ext in exts:
+        if filename.endswith(ext):
+            eligible = True
+            break
+
+    if not eligible:
+        return
+
+    cmd = commands[OS]['tex']
+    run_command_without(cmd, filename)
+
 def open_path(filename):
     cmd = commands[OS]['path']
     run_command_without(cmd, filename)
@@ -103,6 +119,7 @@ def main():
 
     open_vmware(arg)
     open_pdf(arg)
+    open_tex(arg)
     open_web(arg)
     open_path(arg)
 
