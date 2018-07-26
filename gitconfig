@@ -1,6 +1,6 @@
 [user]
 	name = Yeongjin Jang
-	email = yeongjinjanggrad@gmail.com
+	email = yeongjin.jang@oregonstate.edu
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = vim
