@@ -68,7 +68,7 @@ def open_pdf(filename):
 
 def open_tex(filename):
     eligible = False
-    exts = ['tex', 'bib']
+    exts = ['txt', 'tex', 'bib']
 
     for ext in exts:
         if filename.endswith(ext):
