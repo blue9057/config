@@ -116,9 +116,9 @@ export EDITOR=/usr/bin/vim
 
 export PATH="/usr/local/bin:$HOME/bin:$PATH"
 
-export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
+#export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 export PATH="$PATH:/Library/TeX/Distributions/.DefaultTeX/Contents/Programs/texbin"
-source $HOME/.rvm/scripts/rvm
+#source $HOME/.rvm/scripts/rvm
 
 #changwoo
 alias ssh2='ssh -p 2222 $@'
