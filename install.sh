@@ -131,6 +131,17 @@ function setup_move()
   chmod 400 ~/.ssh/id_rsa
 }
 
+function setup_inkscape()
+{
+    OSX=$(uname -a | grep Darwin)
+    if [ "$?" -eq "0" ]; then
+        echo "OSX"
+        cp ~/config/bin/inkscape.osx ~/config/bin/inkscape
+    else
+        echo "Not an OSX"
+    fi
+}
+
 case "$1" in
   vim)
     setup_vim
@@ -176,6 +187,10 @@ case "$1" in
     setup_vpnc
   ;;
 
+  inkscape)
+    setup_inkscape
+  ;;
+
   all)
     setup_git
     setup_bin
@@ -187,6 +202,7 @@ case "$1" in
     setup_rvm
     setup_vim
     setup_vpnc
+    setup_inkscape
   ;;
 
   *)
