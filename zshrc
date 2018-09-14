@@ -125,3 +125,5 @@ alias ssh2='ssh -p 2222 $@'
 alias ssh3='ssh2 -t falcon.ece.vt.edu -- ssh $@'
 alias mosh2='mosh --ssh "ssh -p 2222" $@'
 alias mosh3='mosh2 falcon.ece.vt.edu -- mosh $@'
+
+alias sgx-gdb='/opt/intel/sgxsdk/bin/sgx-gdb'
