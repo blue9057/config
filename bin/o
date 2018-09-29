@@ -34,6 +34,29 @@ commands = {
         'OSX'   : mac,
     }
 
+a_linux = {
+        'pdf' : 'FoxitReader',
+    }
+
+a_commands = {
+        'Linux' : a_linux,
+        'OSX'   : {},
+    }
+
+
+
+def adjust_commands():
+    cmds = commands[OS]
+    a_list = a_commands[OS]
+
+    for k in a_list:
+        v = a_list[k]
+        print("%s => %s" % (k,v))
+        o = subprocess.check_output('which %s' % v, shell=True)
+        if v in o:
+            cmds[k] = v
+
+
 def run_command_with(cmd, arg):
     full_cmd = ("%s %s" % (s(cmd), s(arg)))
     print('Running: "%s"' % full_cmd)
@@ -48,7 +71,7 @@ def run_command_without(cmd, arg):
 
 def open_vmware(filename):
     if filename == 'vmware':
-        run_command_without('sudo', 'vmware')
+        run_command_without('vmware', '')
     return
 
 def open_pdf(filename):
@@ -113,6 +136,7 @@ def check_os():
 
 def main():
     check_os()
+    adjust_commands()
     if(len(sys.argv) != 2):
         open_path('.')
     arg = sys.argv[1]

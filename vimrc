@@ -13,6 +13,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'flazz/vim-colorschemes'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'nightsense/vimspectr'
+Plug 'tomlion/vim-solidity'
 call plug#end()
 
 
@@ -183,3 +184,4 @@ cmap <esc>OF <end>
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline#extensions#tabline#enabled = 1
+
