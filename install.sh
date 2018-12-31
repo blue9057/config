@@ -113,7 +113,36 @@ function setup_zsh()
 function setup_pkgs()
 {
   sudo apt-get update;
-  sudo apt-get install exuberant-ctags vim tmux curl wget zsh mosh
+  sudo apt-get install -y exuberant-ctags vim tmux curl wget zsh mosh
+}
+
+function setup_build()
+{
+  sudo apt-get update;
+  sudo apt-get install -y python python-dev python-pip python3 python3-dev \
+                            python3-pip \
+                            ssh htop \
+                            autoconf automake autopoint autotools-dev \
+                            binutils binutils-common binutils-x86-64-linux-gnu \
+                            build-essential cpp cpp-7 debhelper \
+                            dh-autoreconf dh-strip-nondeterminism \
+                            dpkg-dev g++ g++-7 gcc gcc-7 gcc-7-base gettext \
+                            intltool-debian libarchive-zip-perl libasan4 \
+                            libatomic1 libbinutils libc-dev-bin libc6-dev \
+                            libcc1-0 libcilkrts5 libcroco3 libdpkg-perl \
+                            libfile-stripnondeterminism-perl libgcc-7-dev \
+                            libgomp1 libisl19 libitm1 liblsan0 libmpc3 libmpx2 \
+                            libquadmath0 libstdc++-7-dev libtimedate-perl \
+                            libtool libtsan0 libubsan0 linux-libc-dev m4 \
+                            make po-debconf sbsigntool \
+
+}
+
+function setup_pip()
+{
+    sudo pip3 install -U pip;
+    sudo pip2 install -U pip;
+    sudo pip install pwntools
 }
 
 function setup_vpnc()
@@ -173,6 +202,14 @@ case "$1" in
 
   pkgs)
     setup_pkgs
+  ;;
+
+  build)
+    setup_build
+  ;;
+
+  pip)
+    setup_pip
   ;;
 
   zsh)
