@@ -1,0 +1,2 @@
+#!/bin/bash
+sudo iwlist scan | grep -A 4 Channel

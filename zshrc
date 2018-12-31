@@ -7,7 +7,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="gentoo"
+ZSH_THEME="bira"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -125,5 +125,9 @@ alias ssh2='ssh -p 2222 $@'
 alias ssh3='ssh2 -t falcon.ece.vt.edu -- ssh $@'
 alias mosh2='mosh --ssh "ssh -p 2222" $@'
 alias mosh3='mosh2 falcon.ece.vt.edu -- mosh $@'
-
+alias mangalyaan='mosh3 mangalyaan'
 alias sgx-gdb='/opt/intel/sgxsdk/bin/sgx-gdb'
+
+if [ -z "$TMUX" ]; then
+    tmux attach -t default || tmux new -s default
+fi
