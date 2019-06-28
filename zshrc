@@ -1,6 +1,5 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -128,6 +127,14 @@ alias mosh3='mosh2 falcon.ece.vt.edu -- mosh $@'
 alias mangalyaan='mosh3 mangalyaan'
 alias sgx-gdb='/opt/intel/sgxsdk/bin/sgx-gdb'
 
-if [ -z "$TMUX" ]; then
-    tmux attach -t default || tmux new -s default
-fi
+#if [ -z "$TMUX" ]; then
+#    tmux attach -t default || tmux new -s default
+#fi
+
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+[[ -s /home/blue9057/.autojump/etc/profile.d/autojump.sh ]] && source /home/blue9057/.autojump/etc/profile.d/autojump.sh
+
+autoload -U compinit && compinit -u
+

@@ -74,6 +74,14 @@ def open_vmware(filename):
         run_command_without('vmware', '')
     return
 
+def open_ida(command):
+    if command == 'ida':
+        run_command_without('/opt/ida-7.2/ida', '')
+        quit()
+    elif command == 'ida64':
+        run_command_without('/opt/ida-7.2/ida64', '')
+        quit()
+
 def open_pdf(filename):
     eligible = False
     images = ['png', 'jpg', 'jpeg', 'gif', 'tiff', 'pdf', 'bmp']
@@ -141,6 +149,7 @@ def main():
         open_path('.')
     arg = sys.argv[1]
 
+    open_ida(arg)
     open_vmware(arg)
     open_pdf(arg)
     open_tex(arg)

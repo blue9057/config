@@ -1,2 +1,0 @@
-#!/bin/sh
-/Applications/IDA\ Pro\ 6.5/idaq.app/Contents/MacOS/idaq $1&
