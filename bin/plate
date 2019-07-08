@@ -7,15 +7,21 @@ import sys
 SUPPORTED_TYPES = [
         'py',
         'c',
+        'makefile',
 ]
 
 def main():
 
-    if len(sys.argv) < 2:
-        print("USAGE: %s [file_type (c, py, etc.)]" % __file__)
+    if len(sys.argv) != 2:
+        print("USAGE: %s [filname]" % __file__)
         quit()
 
-    f_type = sys.argv[1]
+    f_name = sys.argv[1]
+
+    if f_name == 'Makefile':
+        f_type = 'makefile'
+    else:
+        f_type = f_name.split('.')[-1]
 
     if not f_type in SUPPORTED_TYPES:
         print("Type %s is not supported." % f_type)
@@ -25,11 +31,10 @@ def main():
         quit()
 
 
-    script_path = os.path.abspath(__file__)
-    config_path = os.path.dirname(os.path.dirname(script_path) + '/../')
+    script_path = os.path.dirname(os.path.abspath(__file__))
 
-    from_path = "%s/templates/t.%s" % (config_path, f_type)
-    to_path = "t.%s" % f_type
+    from_path = "%s/template.%s" % (script_path, f_type)
+    to_path = "%s" % (f_name)
     ret = shutil.copyfile(from_path, to_path)
     print(ret)
 
