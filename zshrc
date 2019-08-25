@@ -97,6 +97,11 @@ source $ZSH/oh-my-zsh.sh
 
 export TERM=xterm
 
+# some more ls aliases
+[[ "$OSTYPE" == "darwin"* ]] && export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd" && \
+  alias ls='ls -G' || alias ls='ls --color'
+
+
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
