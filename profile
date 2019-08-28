@@ -6,3 +6,5 @@ else
   export LANG=en_US.UTF-8
 fi
 source ~/.bashrc
+
+export PATH="$HOME/.cargo/bin:$PATH"
