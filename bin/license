@@ -5,7 +5,9 @@ import sys
 
 license_text = {}
 license_text['MIT'] = \
-"""Copyright (C) %d by Yeongjin Jang and individual contributors.
+"""MIT License
+
+Copyright (C) %d by Yeongjin Jang and individual contributors.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -27,7 +29,9 @@ THE SOFTWARE.
 """ % datetime.datetime.now().year
 
 license_text['GPL'] = \
-""" [write program name here]
+"""    GNU General Public License
+
+    [write program name here]
     Copyright (C) %d by Yeongjin Jang and individual contributors.
 
     This program is free software: you can redistribute it and/or modify
@@ -45,7 +49,9 @@ license_text['GPL'] = \
 """ % datetime.datetime.now().year
 
 license_text['APACHE'] = \
-"""Copyright (C) %d by Yeongjin Jang and individual contributors.
+"""   APACHE License
+
+   Copyright (C) %d by Yeongjin Jang and individual contributors.
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -61,7 +67,9 @@ license_text['APACHE'] = \
 """ % datetime.datetime.now().year
 
 license_text['BSD3'] = \
-"""Copyright (C) %d by Yeongjin Jang and individual contributors.
+"""BSD 3-clause license
+
+Copyright (C) %d by Yeongjin Jang and individual contributors.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
@@ -91,7 +99,9 @@ POSSIBILITY OF SUCH DAMAGE.
 """ % datetime.datetime.now().year
 
 license_text['BSD2'] = \
-"""Copyright (C) %d by Yeongjin Jang and individual contributors.
+"""BSD 2-clause license
+
+Copyright (C) %d by Yeongjin Jang and individual contributors.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
