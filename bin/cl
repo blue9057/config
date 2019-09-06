@@ -1,0 +1,11 @@
+#!/bin/sh
+KR=`env TZ=Asia/Seoul date`
+USW=`env TZ='America/Los_Angeles' date`
+USE=`env TZ='America/New_York' date`
+UTC=`env TZ='Europe/London' date`
+CET=`env TZ='Europe/Paris' date`
+echo "KR        : $KR"
+echo "US West   : $USW"
+echo "US East   : $USE"
+echo "UTC       : $UTC"
+echo "CET       : $CET"
