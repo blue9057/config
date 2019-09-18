@@ -8,6 +8,7 @@ SUPPORTED_TYPES = [
         'py',
         'c',
         'makefile',
+        'pwn',
 ]
 
 def main():
@@ -20,6 +21,9 @@ def main():
 
     if f_name == 'Makefile':
         f_type = 'makefile'
+    if f_name == 'pwn':
+        f_name = 'exploit.py'
+        f_type = 'pwn'
     else:
         f_type = f_name.split('.')[-1]
 
