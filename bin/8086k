@@ -1,2 +1,2 @@
 #!/bin/bash
-ssh -A -Y sgx-laptop.eecs.oregonstate.edu -p 22
+sally
