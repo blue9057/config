@@ -118,7 +118,7 @@ alias gdb='gdb -q'
 
 export EDITOR=/usr/bin/vim
 
-export PATH="/usr/local/bin:$HOME/bin:$PATH"
+export PATH="/usr/local/bin:$HOME/bin:$PATH:/home/blue9057/ghidra/current"
 
 #export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 export PATH="$PATH:/Library/TeX/Distributions/.DefaultTeX/Contents/Programs/texbin"
@@ -142,4 +142,4 @@ export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 [[ -s /home/blue9057/.autojump/etc/profile.d/autojump.sh ]] && source /home/blue9057/.autojump/etc/profile.d/autojump.sh
 
 autoload -U compinit && compinit -u
-
+eval $(thefuck --alias)
