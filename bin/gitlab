@@ -1,2 +1,2 @@
 #!/bin/bash
-ssh `basename $0`.unexploitable.systems -p 8080
+ssh `basename $0`.unexploitable.systems

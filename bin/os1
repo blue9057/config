@@ -1,1 +1,2 @@
-engr
+#!/bin/bash
+ssh -t jangye@flip.engr.oregonstate.edu ssh jangye@os1.engr.oregonstate.edu
