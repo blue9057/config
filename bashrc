@@ -137,7 +137,11 @@ fi
 #  fi
 #fi
 
-eval `ssh-agent`
+if [ -z "$SSH_AUTH_SOCK" ]
+then
+    eval `ssh-agent` > /dev/null
+    ssh-add -l > /dev/null
+fi
 
 #export LC_ALL=en_US.utf-8
 #export LANG="$LC_ALL"
