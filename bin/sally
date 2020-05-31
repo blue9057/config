@@ -1,2 +1,1 @@
-#!/bin/bash
-ssh -Y -A fw-kec3031-`basename $0`.eecs.oregonstate.edu
+unexploitable-connect

@@ -136,11 +136,12 @@ fi
 #    . /etc/bash_completion
 #  fi
 #fi
-
-if [ -z "$SSH_AUTH_SOCK" ]
-then
-    eval `ssh-agent` > /dev/null
-    ssh-add -l > /dev/null
+if [[ "blue9057-gram" == $(hostname) ]]; then
+    if [ -z "$SSH_AUTH_SOCK" ] ; then
+        eval `ssh-agent` > /dev/null
+        ssh-add -l ~/.ssh/id-rsa > /dev/null
+        ssh-add -l ~/.ssh/id-ed25519 > /dev/null
+    fi
 fi
 
 #export LC_ALL=en_US.utf-8

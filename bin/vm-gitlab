@@ -1,2 +1,1 @@
-#!/bin/bash
-ssh `basename $0`.eecs.oregonstate.edu
+eecs-connect
