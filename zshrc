@@ -124,6 +124,15 @@ export PATH="/usr/local/bin:$HOME/bin:$PATH:/home/blue9057/ghidra/current"
 export PATH="$PATH:/Library/TeX/Distributions/.DefaultTeX/Contents/Programs/texbin"
 #source $HOME/.rvm/scripts/rvm
 
+if [[ "blue9057-gram" == $(hostname) ]]; then
+    if [ -z "$SSH_AUTH_SOCK" ] ; then
+        eval `ssh-agent` > /dev/null
+        ssh-add -l ~/.ssh/id-rsa > /dev/null
+        ssh-add -l ~/.ssh/id-ed25519 > /dev/null
+        ssh-add
+    fi
+fi
+
 #changwoo
 alias ssh2='ssh -p 2222 $@'
 alias ssh3='ssh2 -t falcon.ece.vt.edu -- ssh $@'
@@ -142,4 +151,4 @@ export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 [[ -s /home/blue9057/.autojump/etc/profile.d/autojump.sh ]] && source /home/blue9057/.autojump/etc/profile.d/autojump.sh
 
 autoload -U compinit && compinit -u
-eval $(thefuck --alias)
+source /opt/intel/sgxsdk/environment
