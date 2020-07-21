@@ -1,2 +1,2 @@
 #!/bin/bash
-ssh -Y -A -t jangye@flip.engr.oregonstate.edu ssh -Y -A jangye@$(basename $0).engr.oregonstate.edu
+ssh -t jangye@flip.engr.oregonstate.edu ssh jangye@$(basename $0).engr.oregonstate.edu

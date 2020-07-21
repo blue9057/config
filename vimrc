@@ -14,6 +14,7 @@ Plug 'flazz/vim-colorschemes'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'nightsense/vimspectr'
 Plug 'tomlion/vim-solidity'
+Plug 'mhinz/vim-startify'
 call plug#end()
 
 
