@@ -148,7 +148,7 @@ fi
 #export LANG="$LC_ALL"
 export EDITOR=/usr/bin/vim
 
-export PATH="/usr/local/bin:$HOME/bin:/home/blue9057/.yarn/bin:$PATH"
+export PATH="/usr/local/bin:$HOME/bin:$HOME/bin/jumphosts:/home/blue9057/.yarn/bin:$PATH"
 
 export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 export PATH="$PATH:/Library/TeX/Distributions/.DefaultTeX/Contents/Programs/texbin"

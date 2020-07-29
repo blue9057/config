@@ -1,2 +1,0 @@
-#!/bin/bash
-ssh -t jangye@flip.engr.oregonstate.edu ssh jangye@$(basename $0).engr.oregonstate.edu

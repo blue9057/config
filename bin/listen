@@ -1,2 +1,2 @@
 #!/bin/sh
-netstat -ant | grep " LISTEN"
+sudo netstat -ant | grep " LISTEN"

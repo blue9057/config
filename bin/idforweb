@@ -1,2 +1,0 @@
-#!/bin/bash
-mosh `basename $0`.blue9057.com

@@ -1,8 +1,0 @@
-#!/usr/bin/env ruby
-
-base = "java -jar /Users/blue9057/co-work/simon/apk-tool/apktool_2.0.0rc3.jar"
-ARGV.each do |x|
-  base << " \"#{x}\""
-end
-puts "Running #{base}"
-system base

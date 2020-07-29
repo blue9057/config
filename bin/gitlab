@@ -1,2 +1,0 @@
-#!/bin/bash
-ssh `basename $0`.unexploitable.systems

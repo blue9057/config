@@ -118,7 +118,7 @@ alias gdb='gdb -q'
 
 export EDITOR=/usr/bin/vim
 
-export PATH="/usr/local/bin:$HOME/bin:$PATH:/home/blue9057/ghidra/current"
+export PATH="/usr/local/bin:$HOME/bin:$HOME/bin/jumphosts:$PATH:/home/blue9057/ghidra/current"
 
 #export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 export PATH="$PATH:/Library/TeX/Distributions/.DefaultTeX/Contents/Programs/texbin"

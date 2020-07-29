@@ -1,2 +1,0 @@
-#!/bin/sh
-ssh -X mininet@172.16.183.163
