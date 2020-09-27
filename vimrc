@@ -5,20 +5,33 @@ set modeline
 
 call plug#begin('~/.vim/plugged')
 " 80 line
-Plug 'vim-scripts/eighties.vim'
+Plug 'justincampbell/vim-eighties'
 Plug 'PreserveNoEOL'
 
-Plug 'vim-javascript'
+Plug 'pangloss/vim-javascript'
+
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
 Plug 'flazz/vim-colorschemes'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'nightsense/vimspectr'
 Plug 'tomlion/vim-solidity'
 Plug 'mhinz/vim-startify'
+Plug 'jacoborus/tender.vim'
+Plug 'morhetz/gruvbox'
 call plug#end()
+
+" eighties
+let g:eighties_enabled = 1
+let g:eighties_minimum_width = 80
+let g:eighties_extra_width = 0 " Increase this if you want some extra room
+let g:eighties_compute = 1 " Disable this if you just want the minimum + extra
+let g:eighties_bufname_additional_patterns = ['fugitiveblame'] " Defaults to [], 'fugitiveblame' is only an example. Takes a comma delimited list of bufnames as strings.
 
 
 colorscheme hybrid_material
+"colorscheme tender
 
 set wildignore+=*.DS_Store
 set wildignore+=*.pyc
@@ -185,4 +198,6 @@ cmap <esc>OF <end>
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'default'
 
+let g:airline_theme='deus'
