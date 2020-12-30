@@ -1,0 +1,2 @@
+#!/bin/bash
+ssh -J armfwd.unexploitable.systems $(basename $0).unexploitable.systems
