@@ -151,4 +151,7 @@ export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 [[ -s /home/blue9057/.autojump/etc/profile.d/autojump.sh ]] && source /home/blue9057/.autojump/etc/profile.d/autojump.sh
 
 autoload -U compinit && compinit -u
-source /opt/intel/sgxsdk/environment
+if [[ -f /opt/intel/sgxsdk/environment ]]
+then
+    source /opt/intel/sgxsdk/environment
+fi
