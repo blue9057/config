@@ -159,3 +159,16 @@ alias ssh2='ssh -p 2222 $@'
 alias ssh3='ssh2 -t falcon.ece.vt.edu -- ssh $@'
 alias mosh2='mosh --ssh "ssh -p 2222" $@'
 alias mosh3='mosh2 falcon.ece.vt.edu -- mosh $@'
+
+if [[ ${WSL_DISTRO_NAME} ]]; then
+#echo "Running in WSL"
+    cd ~
+    export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0.0;
+    export XDG_SESSION_TYPE="x11"
+    export XDG_RUNTIME_DIR=~/xdg
+    export XDG_SESSION_CLASS="user"
+    export XDG_SESSION_DESKTOP=ubuntu
+    export XDG_CURRENT_DESKTOP=ubuntu:GNOME
+    export DESKTOP_SESSION=ubuntu
+    export GDMSESSION=ubuntu
+fi
