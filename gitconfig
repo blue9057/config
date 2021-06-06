@@ -18,3 +18,9 @@
   smtpServer = smtp.gmail.com
   smtpUser = yeongjinjanggrad@gmail.com
   smtpServerPort = 587
+
+[credential "https://git.overleaf.com"]
+  username = yeongjin.jang@oregonstate.edu
+  password = wlfkffkak1818
+[credential]
+	helper = cache --timeout=3000

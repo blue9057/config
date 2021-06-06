@@ -95,7 +95,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export TERM=xterm
+export TERM=screen-256color
 
 # some more ls aliases
 [[ "$OSTYPE" == "darwin"* ]] && export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd" && \
@@ -110,8 +110,8 @@ alias ll='ls -alF'
 alias la='ls -als'
 alias l='ls -ls'
 
-alias scr='screen -T xterm-color'
-alias tmux='TERM=xterm-256color tmux'
+alias scr='screen -T screen-color'
+alias tmux='TERM=screen-256color tmux'
 
 alias v='vim'
 alias gdb='gdb -q'
