@@ -1,1 +1,2 @@
-eecs-fw-connect
+#!/bin/bash
+ssh -J jangye@flip.engr.oregonstate.edu blue9057@fw-$(basename $0).eecs.oregonstate.edu

@@ -145,9 +145,6 @@ alias sgx-gdb='/opt/intel/sgxsdk/bin/sgx-gdb'
 #    tmux attach -t default || tmux new -s default
 #fi
 
-export GOROOT=/usr/local/go
-export GOPATH=$HOME/go
-export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 [[ -s /home/blue9057/.autojump/etc/profile.d/autojump.sh ]] && source /home/blue9057/.autojump/etc/profile.d/autojump.sh
 
 autoload -U compinit && compinit -u
