@@ -1,0 +1,4 @@
+#!/bin/sh
+ps aux | grep -v root | grep -v lightdm | grep -v blue9057 | grep -v www-data \
+| grep -v rtkit | grep -v systemd | grep -v nobody | grep -v syslogd | \
+grep -v whoopsie | grep -v colord
