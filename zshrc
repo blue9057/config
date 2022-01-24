@@ -152,3 +152,4 @@ if [[ -f /opt/intel/sgxsdk/environment ]]
 then
     source /opt/intel/sgxsdk/environment
 fi
+export TERM=xterm-256color

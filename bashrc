@@ -172,3 +172,5 @@ if [[ ${WSL_DISTRO_NAME} ]]; then
     export DESKTOP_SESSION=ubuntu
     export GDMSESSION=ubuntu
 fi
+
+export TERM=xterm-256color
