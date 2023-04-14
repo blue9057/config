@@ -1,0 +1,2 @@
+#!/bin/bash
+ssh -J jangye@flip.engr.oregonstate.edu -L0.0.0.0:7860:127.0.0.1:7860 blue9057@fw-jangha.eecs.oregonstate.edu

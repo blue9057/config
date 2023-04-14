@@ -175,3 +175,4 @@ if [[ ${WSL_DISTRO_NAME} ]]; then
 fi
 
 export TERM=xterm-256color
+source /opt/intel/sgxsdk/environment
