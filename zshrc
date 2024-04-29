@@ -139,19 +139,15 @@ alias ssh3='ssh2 -t falcon.ece.vt.edu -- ssh $@'
 alias mosh2='mosh --ssh "ssh -p 2222" $@'
 alias mosh3='mosh2 falcon.ece.vt.edu -- mosh $@'
 alias mangalyaan='mosh3 mangalyaan'
-alias sgx-gdb='/opt/intel/sgxsdk/bin/sgx-gdb'
 
 #if [ -z "$TMUX" ]; then
 #    tmux attach -t default || tmux new -s default
 #fi
 
-[[ -s /home/blue9057/.autojump/etc/profile.d/autojump.sh ]] && source /home/blue9057/.autojump/etc/profile.d/autojump.sh
-
-autoload -U compinit && compinit -u
-if [[ -f /opt/intel/sgxsdk/environment ]]
-then
-    source /opt/intel/sgxsdk/environment
-fi
 export TERM=xterm-256color
 
 source .venv/bin/activate
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

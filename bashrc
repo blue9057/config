@@ -175,4 +175,7 @@ if [[ ${WSL_DISTRO_NAME} ]]; then
 fi
 
 export TERM=xterm-256color
-source /opt/intel/sgxsdk/environment
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
