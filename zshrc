@@ -146,7 +146,7 @@ alias mangalyaan='mosh3 mangalyaan'
 
 export TERM=xterm-256color
 
-source .venv/bin/activate
+source "$HOME/.venv/bin/activate"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
