@@ -1,26 +1,5 @@
+[pull]
+	rebase = true
 [user]
+	email = dr.yeongjin.jang@gmail.com
 	name = Yeongjin Jang
-	email = yeongjin.jang@oregonstate.edu
-[core]
-	excludesfile = ~/.gitignore_global
-	editor = vim
-	pager = less -F -R -X
-[color]
-	ui = auto
-[difftool]
-	prompt = false
-[fetch]
-	prune = true
-[push]
-  default = simple
-[sendemail]
-  smtpEncryption = tls
-  smtpServer = smtp.gmail.com
-  smtpUser = yeongjinjanggrad@gmail.com
-  smtpServerPort = 587
-
-[credential "https://git.overleaf.com"]
-  username = yeongjin.jang@oregonstate.edu
-  password = wlfkffkak1818
-[credential]
-	helper = cache --timeout=3000
