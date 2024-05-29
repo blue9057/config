@@ -144,6 +144,15 @@ alias mangalyaan='mosh3 mangalyaan'
 #    tmux attach -t default || tmux new -s default
 #fi
 
+# ssh auth sock
+if [[ $SSH_AUTH_SOCK != "$HOME/.ssh/ssh_auth_sock" ]]; then
+    if [[ $SSH_AUTH_SOCK != $(readlink -f "$HOME/.ssh/ssh_auth_sock") ]]; then
+        rm ~/.ssh/ssh_auth_sock
+        ln -sf $SSH_AUTH_SOCK ~/.ssh/ssh_auth_sock
+        export SSH_AUTH_SOCK="$HOME/.ssh/ssh_auth_sock"
+    fi
+fi
+
 export TERM=xterm-256color
 [[ -s "$HOME/config/api-keys" ]] && source "$HOME/config/api-keys"
 # source "$HOME/.venv/bin/activate"  # commented out by conda initialize
